@@ -1,0 +1,8 @@
+@"
+.claude/
+.claude-dev-helper/
+logs/
+check_temp/
+*.zip
+__pycache__/
+"@ | Out-File -FilePath .gitignore -Encoding utf8

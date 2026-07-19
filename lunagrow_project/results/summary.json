@@ -1,0 +1,58 @@
+{
+  "nominal": {
+    "sols_run": 370,
+    "crew_alive": false,
+    "final_food": 74739.055,
+    "final_water": 14093.291,
+    "csv": "results/nominal.csv"
+  },
+  "crew_reduced": {
+    "sols_run": 500,
+    "crew_alive": true,
+    "final_food": 74764.234,
+    "final_water": 13991.525,
+    "csv": "results/crew_reduced.csv"
+  },
+  "crew_expanded": {
+    "sols_run": 290,
+    "crew_alive": false,
+    "final_food": 74726.26,
+    "final_water": 14070.8955,
+    "csv": "results/crew_expanded.csv"
+  },
+  "power_reduced": {
+    "sols_run": 375,
+    "crew_alive": false,
+    "final_food": 74735.5,
+    "final_water": 14088.031,
+    "csv": "results/power_reduced.csv"
+  },
+  "power_fault": {
+    "sols_run": 375,
+    "crew_alive": false,
+    "final_food": 74736.76,
+    "final_water": 14088.413,
+    "csv": "results/power_fault.csv"
+  },
+  "crop_loss": {
+    "sols_run": 370,
+    "crew_alive": false,
+    "final_food": 74739.336,
+    "final_water": 18897.883,
+    "csv": "results/crop_loss.csv"
+  },
+  "water_fault": {
+    "sols_run": 375,
+    "crew_alive": false,
+    "final_food": 74735.23,
+    "final_water": 13378.687,
+    "csv": "results/water_fault.csv"
+  },
+  "ogs_fault": {
+    "sols_run": 370,
+    "crew_alive": false,
+    "final_food": 74739.12,
+    "final_water": 14367.878,
+    "csv": "results/ogs_fault.csv"
+  }
+}

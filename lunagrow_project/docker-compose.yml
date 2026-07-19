@@ -1,0 +1,40 @@
+# LunaGrow BioSim stack
+# ----------------------------------------------------------------------------
+# biosim-server : the REAL BioSim Java REST server, built straight from
+#                 upstream (github.com/scottbell/biosim) — per project rules,
+#                 we do not reimplement it, only configure/drive it.
+# openmct-biosim: optional visualiser, per the runbook (screenshots for the
+#                 Challenge deliverable).
+# lunagrow-client: this project — waits for biosim-server to answer, then
+#                 runs the scenarios and writes results/*.csv to a host
+#                 volume so they survive after the container exits.
+#
+# Usage:
+#   docker compose up --build          # everything
+#   docker compose run lunagrow-client --print-config   # dry run, no server
+# ----------------------------------------------------------------------------
+services:
+  biosim-server:
+    build:
+      context: ./biosim
+    ports:
+      - "8009:8009"
+    volumes:
+      - ./logs:/app/logs
+
+  openmct-biosim:
+    build:
+      context: ./openmct-biosim
+    ports:
+      - "9091:80"
+
+  lunagrow-client:
+    build: .
+    depends_on:
+      - biosim-server
+    volumes:
+      - ./results:/app/results
+    # Overrides the Dockerfile CMD if you pass args after `run`, e.g.:
+    #   docker compose run lunagrow-client --scenario nominal --sols 50
+    command: ["--scenario", "all", "--sols", "100",
+              "--url", "http://biosim-server:8009/api/simulation"]
